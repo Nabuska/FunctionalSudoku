@@ -68,7 +68,7 @@ public class SudokuSolver {
     static int [][] cloneAndSet(int [][] BOARD, int X, final int Y, int VALUE){
         int [][] CLONE = new int[BOARD.length][BOARD.length];
         IntStream.of(gridRange).forEach(i -> System.arraycopy(BOARD[i],0, CLONE[i],0, BOARD.length));
-        CLONE[Y][X] = VALUE;
+        CLONE[Y][X] = VALUE;//TODO come up with a functional solution ???
         return CLONE;
     }
 

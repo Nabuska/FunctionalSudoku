@@ -19,6 +19,18 @@ public class Sudoku {
             {X, X, X, X, 8, X, X, 7, 9}
     };
 
+    static final int [][] MULTI_SOLUTION_EXAMPLE_BOARD = {
+            {X, X, X, X, X, X, X, X, X},
+            {X, X, X, 1, 9, 5, X, X, X},
+            {X, X, 8, X, X, X, X, 6, X},
+            {8, X, X, X, 6, X, X, X, X},
+            {X, X, X, X, X, 3, X, X, X},
+            {7, X, X, X, X, X, X, X, X},
+            {X, 6, X, X, X, X, 2, 8, X},
+            {X, X, X, X, X, 9, X, X, X},
+            {X, X, X, X, 8, X, X, 7, X}
+    };
+
     static final int [][] SOLVED_EXAMPLE_BOARD = {
             {5, 3, 4, 6, 7, 8, 9, 1, 2},
             {6, 7, 2, 1, 9, 5, 3, 4, 8},
