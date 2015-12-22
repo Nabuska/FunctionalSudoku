@@ -26,8 +26,8 @@
       <file leaf-file-name="SudokuSolverTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/SudokuSolverTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
+            <state vertical-scroll-proportion="-144.27586">
+              <caret line="264" column="59" selection-start-line="264" selection-start-column="55" selection-end-line="264" selection-end-column="59" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -38,34 +38,34 @@
       <file leaf-file-name="SudokuSolver.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/SudokuSolver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.448276">
-              <caret line="75" column="0" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+            <state vertical-scroll-proportion="-13.551724">
+              <caret line="85" column="5" selection-start-line="85" selection-start-column="5" selection-end-line="85" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#791#792#0" expanded="true" />
-                <element signature="e#836#837#0" expanded="true" />
-                <element signature="e#895#896#0" expanded="true" />
-                <element signature="e#958#959#0" expanded="true" />
+                <element signature="e#873#874#0" expanded="true" />
+                <element signature="e#918#919#0" expanded="true" />
+                <element signature="e#977#978#0" expanded="true" />
+                <element signature="e#1040#1041#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Sudoku.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Sudoku.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/Sudoku.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.14358108">
+            <state vertical-scroll-proportion="0.0">
               <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SudokuController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SudokuController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/SudokuController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="15" column="31" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
+            <state vertical-scroll-proportion="0.40202704">
+              <caret line="14" column="51" selection-start-line="14" selection-start-column="51" selection-end-line="14" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -74,21 +74,11 @@
       <file leaf-file-name="SudokuGenerator.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/SudokuGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="46" column="56" selection-start-line="46" selection-start-column="56" selection-end-line="46" selection-end-column="56" />
+            <state vertical-scroll-proportion="-6.448276">
+              <caret line="54" column="55" selection-start-line="54" selection-start-column="55" selection-end-line="54" selection-end-column="55" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ReferencePipeline.java" pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_45/src.zip!/java/util/stream/ReferencePipeline.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="498" column="0" selection-start-line="498" selection-start-column="0" selection-end-line="498" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -141,9 +131,9 @@
         <option value="$PROJECT_DIR$/src/com/company/TailCall.java" />
         <option value="$PROJECT_DIR$/src/com/company/TailCalls.java" />
         <option value="C:/Program Files/Java/jdk1.8.0_45/src.zip!/java/util/stream/ReferencePipeline.java" />
-        <option value="$PROJECT_DIR$/src/com/company/SudokuSolver.java" />
         <option value="$PROJECT_DIR$/src/com/company/SudokuGenerator.java" />
         <option value="$PROJECT_DIR$/src/com/company/SudokuController.java" />
+        <option value="$PROJECT_DIR$/src/com/company/SudokuSolver.java" />
       </list>
     </option>
   </component>
@@ -847,7 +837,7 @@
       <workItem from="1450694000253" duration="20042000" />
       <workItem from="1450783808499" duration="170000" />
       <workItem from="1450784204678" duration="18101000" />
-      <workItem from="1450802477571" duration="12909000" />
+      <workItem from="1450802477571" duration="18824000" />
     </task>
     <servers />
   </component>
@@ -884,10 +874,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="51222000" />
+    <option name="totallyTimeSpent" value="57137000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -928,15 +918,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <condition expression="count&gt;50" language="JAVA" custom="" />
-          <url>file://$PROJECT_DIR$/src/com/company/SudokuGenerator.java</url>
-          <line>53</line>
-          <properties />
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="3" />
     </breakpoint-manager>
     <watches-manager />
@@ -952,10 +933,10 @@
           <caret line="131" column="48" selection-start-line="131" selection-start-column="48" selection-end-line="132" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#791#792#0" expanded="true" />
-            <element signature="e#836#837#0" expanded="true" />
-            <element signature="e#895#896#0" expanded="true" />
-            <element signature="e#958#959#0" expanded="true" />
+            <element signature="e#873#874#0" expanded="true" />
+            <element signature="e#918#919#0" expanded="true" />
+            <element signature="e#977#978#0" expanded="true" />
+            <element signature="e#1040#1041#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -976,10 +957,10 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#791#792#0" expanded="true" />
-            <element signature="e#836#837#0" expanded="true" />
-            <element signature="e#895#896#0" expanded="true" />
-            <element signature="e#958#959#0" expanded="true" />
+            <element signature="e#873#874#0" expanded="true" />
+            <element signature="e#918#919#0" expanded="true" />
+            <element signature="e#977#978#0" expanded="true" />
+            <element signature="e#1040#1041#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1000,10 +981,10 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#791#792#0" expanded="true" />
-            <element signature="e#836#837#0" expanded="true" />
-            <element signature="e#895#896#0" expanded="true" />
-            <element signature="e#958#959#0" expanded="true" />
+            <element signature="e#873#874#0" expanded="true" />
+            <element signature="e#918#919#0" expanded="true" />
+            <element signature="e#977#978#0" expanded="true" />
+            <element signature="e#1040#1041#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1015,14 +996,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/TailCall.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1034,13 +1007,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/SudokuSolverTest.java">
+    <entry file="file://$PROJECT_DIR$/src/com/company/TailCall.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1052,42 +1023,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/SudokuSolver.java">
+    <entry file="file://$PROJECT_DIR$/src/com/company/SudokuGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.448276">
-          <caret line="75" column="0" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+          <caret line="54" column="55" selection-start-line="54" selection-start-column="55" selection-end-line="54" selection-end-column="55" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#791#792#0" expanded="true" />
-            <element signature="e#836#837#0" expanded="true" />
-            <element signature="e#895#896#0" expanded="true" />
-            <element signature="e#958#959#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/SudokuGenerator.java">
+    <entry file="file://$PROJECT_DIR$/src/com/company/SudokuSolverTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="46" column="56" selection-start-line="46" selection-start-column="56" selection-end-line="46" selection-end-column="56" />
+        <state vertical-scroll-proportion="-144.27586">
+          <caret line="264" column="59" selection-start-line="264" selection-start-column="55" selection-end-line="264" selection-end-column="59" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Sudoku.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/SudokuSolver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.551724">
+          <caret line="85" column="5" selection-start-line="85" selection-start-column="5" selection-end-line="85" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#873#874#0" expanded="true" />
+            <element signature="e#918#919#0" expanded="true" />
+            <element signature="e#977#978#0" expanded="true" />
+            <element signature="e#1040#1041#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/SudokuController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="31" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Sudoku.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.14358108">
-          <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.40202704">
+          <caret line="14" column="51" selection-start-line="14" selection-start-column="51" selection-end-line="14" selection-end-column="51" />
           <folding />
         </state>
       </provider>

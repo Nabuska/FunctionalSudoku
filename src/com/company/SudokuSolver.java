@@ -1,6 +1,9 @@
 package com.company;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -39,27 +42,27 @@ public class SudokuSolver {
         blockHeight = (int) Math.round(Math.sqrt(BOARD.length));
     }
 
-    static Optional<int [][]> findOneSolution(int [][] BOARD){
+    static List<int [][]> findFirstSolutions(int [][] BOARD, int LIMIT){
         init(BOARD);
-        return solveHelper(BOARD).findAny();
+        return solveHelper(BOARD, getEmptys(BOARD), 0).limit(LIMIT).collect(Collectors.toList());
+        //return solveHelper2(BOARD).limit(LIMIT).collect(Collectors.toList());
     }
 
     static List<int[][]> findAllSolutions(int [][] BOARD){
         init(BOARD);
-        return solveHelper(BOARD).collect(Collectors.toList());
+        return solveHelper(BOARD, getEmptys(BOARD), 0).collect(Collectors.toList());
     }
 
-    static Stream<int [][]> solveHelper(int [][] BOARD){
-        final Optional<int []> firstEmpty = firstEmpty(BOARD);
-        if(firstEmpty.isPresent()){
-            int [] COORD = firstEmpty.get();
+    static Stream<int [][]> solveHelper(int [][] BOARD, int [][] EMPTYS, int currentEmptyIndex){
+        if(currentEmptyIndex<EMPTYS.length){
+            int [] COORD = EMPTYS[currentEmptyIndex];
             return validValueFor(BOARD, COORD[1], COORD[0])
                     .parallel()
                     .boxed()
-                    .flatMap(v -> solveHelper(cloneAndSet(BOARD, COORD[1], COORD[0], v)));
+                    .flatMap(v -> solveHelper(cloneAndSet(BOARD, COORD[1], COORD[0], v), EMPTYS, 1+currentEmptyIndex));
         }
         else{
-            int [][][] wrapped =  {BOARD};
+            int [][][] wrapped = {BOARD};
             return Stream.of(wrapped);
         }
     }
@@ -82,7 +85,13 @@ public class SudokuSolver {
                 .filter(i -> i!=0);
     }
 
-    private static Optional<int[]> firstEmpty(int[][] BOARD) {
+    private static int[][] getEmptys(int [][]BOARD){
+        List<int []> holder = allCoords.stream().filter(v -> BOARD[v[0]][v[1]]==0).collect(Collectors.toList());
+        Collections.shuffle(holder);
+        return holder.toArray(new int[holder.size()][2]);
+    }
+
+    private static Optional<int[]> findEmpty(int[][] BOARD) {
         return allCoords.stream().filter(v -> BOARD[v[0]][v[1]]==0).findFirst();
     }
 
