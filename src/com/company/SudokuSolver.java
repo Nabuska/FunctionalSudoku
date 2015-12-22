@@ -1,8 +1,6 @@
 package com.company;
 
-import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -87,12 +85,7 @@ public class SudokuSolver {
 
     private static int[][] getEmptys(int [][]BOARD){
         List<int []> holder = allCoords.stream().filter(v -> BOARD[v[0]][v[1]]==0).collect(Collectors.toList());
-        Collections.shuffle(holder);
         return holder.toArray(new int[holder.size()][2]);
-    }
-
-    private static Optional<int[]> findEmpty(int[][] BOARD) {
-        return allCoords.stream().filter(v -> BOARD[v[0]][v[1]]==0).findFirst();
     }
 
     static void printBoard(int [][] BOARD){
