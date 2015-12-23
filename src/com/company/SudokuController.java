@@ -11,8 +11,10 @@ public class SudokuController {
         }*/
         //System.out.println(Stream.of(Sudoku.WORLDS_HARDEST_BOARD).mapToLong(row -> IntStream.of(row).filter(v -> v!=0).count()).sum());
         long t1 = System.currentTimeMillis();
-        for (int i = 0; i < 1; i++) {
-            System.out.println("solutions " + SudokuSolver.findAllSolutions(Sudoku.MULTI_SOLUTION_EXAMPLE_BOARD).size());
+        for (int i = 0; i < 15; i++) {
+            System.out.println(i);
+            SudokuSolver.findFirstSolutions(Sudoku.FOUR_BY_FOUR_BLOCK,1);
+            //System.out.println("solutions " + SudokuSolver.findAllSolutions(Sudoku.WORLDS_HARDEST_BOARD).size());
             //SudokuSolver.printBoard(SudokuSolver.findFirstSolutions(Sudoku.WORLDS_HARDEST_BOARD, 1).get(0));
         }
         long t2 = System.currentTimeMillis()-t1;

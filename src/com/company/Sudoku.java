@@ -55,5 +55,24 @@ public class Sudoku {
             {X, 9, X, X, X, X, 4, X, X}
     };
 
+    static final int [][] FOUR_BY_FOUR_BLOCK = {
+            {2,	X,	X,	X,	9,	3,	7,	X,	X,	X,	X,	X,	11,	10,	X,	13,},
+            {X,	X,	1,	X,	X,	15,	13,	5,	14,	X,	X,	9,	X,	X,	X,	X},
+            {X,	7,	X,	X,	X,	1,	X,	X,	X,	10,	4,	X,	5,	14,	3,	2},
+            {X,	X,	12,	X,	10,	X,	2,	X,	X,	3,	8,	15,	X,	6,	X,	X},
+            {X,	2,	X,	10,	X,	X,	X,	X,	15,	1,	7,	X,	8,	9,	X,	X},
+            {X,	X,	7,	X,	3,	9,	1,	X,	X,	X,	X,	X,	X,	X,	X,	X},
+            {X,	X,	6,	X,	X,	X,	10,	15,	X,	X,	X,	12,	X,	X,	X,	X},
+            {13,X,	11,	X,	X,	6,	X,	2,	X,	8,	3,	X,	X,	12,	X,	X},
+            {X,	X,	X,	X,	2,	X,	X,	9,	X,	15,	X,	X,	X,	X,	X,	X},
+            {X,	X,	X,	13,	4,	X,	X,	X,	5,	14,	X,	X,	X,	X,	X,	X},
+            {4,	X,	3,	X,	X,	X,	11,	X,	X,	7,	X,	2,	X,	X,	X,	X},
+            {5,	X,	X,	X,	X,	X,	X,	6,	X,	13,	12,	X,	X,	2,	9,	X},
+            {X,	3,	X,	6,	X,	10,	X,	X,	X,	X,	X,	X,	X,	X,	X,	14},
+            {X,	X,	8,	X,	X,	X,	X,	3,	6,	X,	X,	4,	12,	X,	1,	X},
+            {X,	X,	15,	X,	X,	13,	X,	X,	X,	X,	14,	8,	6,	X,	5,	X},
+            {7,	X,	X,	X,	12,	X,	X,	8,	X,	11,	X,	10,	X,	X,	X,	3}
+    };
+
     private Sudoku(){}
 }
