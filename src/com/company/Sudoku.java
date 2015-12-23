@@ -94,7 +94,10 @@ public class Sudoku {
             }
             System.out.println(" |");
         }
-        System.out.println("  -----------------------------------");
+        System.out.print("  ");
+        for(int j = 0; j<blockHeight; j++)
+            for(int k = 0; k<blockHeight; k++)
+                System.out.print("----");
     }
 
     private Sudoku(){}

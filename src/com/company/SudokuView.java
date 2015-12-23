@@ -118,13 +118,17 @@ public class SudokuView extends JFrame{
                     if (f.getText().charAt(0) == '0')
                         f.setText(f.getText().replace("0", ""));
                     else if (!Character.isDigit(c)) {
-                        f.setText(f.getText().replaceFirst("[^0-9]", ""));
+                        f.setText(f.getText().replaceFirst("[^1-9]", ""));
                     } else if (Integer.parseInt(f.getText().trim()) > maxValue) {
                         f.setText(c+"");
                     }
                 }
-                if(f.getText().length()==0)
+                if(f.getText().length()==0){
                     f.setText("0");
+                    f.setForeground(Color.WHITE);
+                }
+                else if(f.getForeground()!=Color.BLACK)
+                    f.setForeground(Color.BLACK);
             }
         };
 
@@ -132,6 +136,8 @@ public class SudokuView extends JFrame{
 
     public void setValue(int x, int y, String value){
         numberGrid[y][x].setText(value);
+        if(value.equals("0"))
+            numberGrid[y][x].setForeground(Color.WHITE);
     }
 
     public int getValue(int x, int y){

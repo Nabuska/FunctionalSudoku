@@ -14,14 +14,15 @@ public class SudokuController {
     private SudokuView view;
 
     public SudokuController(){
-        List<int[][]> grid = SudokuGenerator.generate(3);
+        int blockWidth = 3;
+        List<int[][]> grid = SudokuGenerator.generate(blockWidth);
+        view = new SudokuView(blockWidth, this);
         for (int i = 0; i < grid.get(0).length; i++) {
             for (int j = 0; j < grid.get(0).length; j++) {
                 view.setValue(i, j, grid.get(0)[i][j]+"");
             }
         }
         solvedGrid=grid.get(1);
-        view = new SudokuView(3, this);
     }
 
     public static void main(String[] args) {

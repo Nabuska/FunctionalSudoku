@@ -30,9 +30,9 @@ public class SudokuGenerator {
                         .boxed().map(j -> 0)
                         .toArray(Integer[]::new))
                 .toArray(Integer[][]::new);*/
-        int hintNumbers = (int) Math.round(1.0*DEFAULT_HINT_NUMBERS/(DEFAULT_BLOCK_SIDE_LENGTH*DEFAULT_BLOCK_SIDE_LENGTH)*BLOCK_SIDE_LENGTH*BLOCK_SIDE_LENGTH*2);
+        SudokuSolver.init(board);
         int [][] solution = generateHelper(board, SudokuSolver.getAllCoords(board).stream()
-                .collect(Collectors.toList()), hintNumbers).invoke();
+                .collect(Collectors.toList()), board.length*board.length/3*2).invoke();
         return Arrays.asList(board,solution);
     }
 

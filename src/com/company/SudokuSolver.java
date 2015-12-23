@@ -42,7 +42,7 @@ public class SudokuSolver {
         return Stream.of(BOARD).mapToInt(row -> row[X]);
     }
 
-    private static void init(int [][] BOARD){
+    static void init(int [][] BOARD){
         int maxValue = BOARD.length;
         allCoords = getAllCoords(BOARD);
         gridRange = IntStream.range(0,maxValue).toArray();
@@ -61,6 +61,7 @@ public class SudokuSolver {
     }
 
     static Stream<int [][]> solveHelper(int [][] BOARD, int [][] EMPTYS, int currentEmptyIndex){
+
         if (currentEmptyIndex < EMPTYS.length) {
             int[] COORD = EMPTYS[currentEmptyIndex];
             return validValueFor(BOARD, COORD[1], COORD[0])
