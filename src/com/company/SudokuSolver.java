@@ -1,17 +1,31 @@
 package com.company;
 
+import com.sun.xml.internal.ws.api.server.InstanceResolver;
+
+import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.function.BiPredicate;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class SudokuSolver {
 
-    static List<int []> allCoords;
-    static int [] allValues = {1,2,3,4,5,6,7,8,9};
-    static int [] gridRange = {0,1,2,3,4,5,6,7,8};
-    static int blockHeight = 3;
+    private static List<int []> allCoords;
+    private static int [] allValues = {1,2,3,4,5,6,7,8,9};
+    private static int [] gridRange = {0,1,2,3,4,5,6,7,8};
+    private static int blockHeight = 3;
+
+    static List<int[]> getAllCoords(int [][] BOARD){
+        return IntStream.range(0,BOARD.length)
+                .boxed()
+                .flatMap(i -> IntStream.range(0, BOARD.length)
+                        .boxed()
+                        .map(j -> new int[]{i,j})).collect(Collectors.toList());
+    }
 
     static IntStream blockValuesAt(int [][] BOARD, int X, int Y){
         final int Y_RANGE_START = (Y/blockHeight)*blockHeight, X_RANGE_START = (X/blockHeight)*blockHeight;
@@ -28,13 +42,9 @@ public class SudokuSolver {
         return Stream.of(BOARD).mapToInt(row -> row[X]);
     }
 
-    static void init(int [][] BOARD){
+    private static void init(int [][] BOARD){
         int maxValue = BOARD.length;
-        allCoords = IntStream.range(0,BOARD.length)
-                .boxed()
-                .flatMap(i -> IntStream.range(0, BOARD.length)
-                        .boxed()
-                        .map(j -> new int[]{i,j})).collect(Collectors.toList());
+        allCoords = getAllCoords(BOARD);
         gridRange = IntStream.range(0,maxValue).toArray();
         allValues = IntStream.rangeClosed(1,maxValue).toArray();
         blockHeight = (int) Math.round(Math.sqrt(BOARD.length));
@@ -42,8 +52,7 @@ public class SudokuSolver {
 
     static List<int [][]> findFirstSolutions(int [][] BOARD, int LIMIT){
         init(BOARD);
-        return solveHelper(BOARD, getEmptys(BOARD), 0).limit(LIMIT).collect(Collectors.toList());
-        //return solveHelper2(BOARD).limit(LIMIT).collect(Collectors.toList());
+        return solveHelper(BOARD, getEmptys(BOARD), 0).limit(LIMIT).peek(i -> System.out.println("found 1")).collect(Collectors.toList());
     }
 
     static List<int[][]> findAllSolutions(int [][] BOARD){
@@ -52,15 +61,14 @@ public class SudokuSolver {
     }
 
     static Stream<int [][]> solveHelper(int [][] BOARD, int [][] EMPTYS, int currentEmptyIndex){
-        if(currentEmptyIndex<EMPTYS.length){
-            int [] COORD = EMPTYS[currentEmptyIndex];
+        if (currentEmptyIndex < EMPTYS.length) {
+            int[] COORD = EMPTYS[currentEmptyIndex];
             return validValueFor(BOARD, COORD[1], COORD[0])
                     .parallel()
                     .boxed()
-                    .flatMap(v -> solveHelper(cloneAndSet(BOARD, COORD[1], COORD[0], v), EMPTYS, 1+currentEmptyIndex));
-        }
-        else{
-            int [][][] wrapped = {BOARD};
+                    .flatMap(v -> solveHelper(cloneAndSet(BOARD, COORD[1], COORD[0], v), EMPTYS, 1 + currentEmptyIndex));
+        } else {
+            int[][][] wrapped = {BOARD};
             return Stream.of(wrapped);
         }
     }
@@ -88,25 +96,21 @@ public class SudokuSolver {
         return holder.toArray(new int[holder.size()][2]);
     }
 
-    static void printBoard(int [][] BOARD){
-        for (int i = 0; i < BOARD.length; i++) {
-            if(i%blockHeight==0){
-                System.out.print("  ");
-                for(int j = 0; j<blockHeight; j++)
-                    for(int k = 0; k<blockHeight; k++)
-                        System.out.print("----");
-                System.out.println();
-            }
-            for (int j = 0; j < BOARD[i].length; j++) {
-                if(j%blockHeight==0)
-                    System.out.print(" | ");
-                else
-                    System.out.print("   ");
-                System.out.print(BOARD[i][j]);
-            }
-            System.out.println(" |");
-        }
-        System.out.println("  -----------------------------------");
+    public static boolean checkIsLegit(int [][]BOARD) {
+        Predicate<Integer> legitRow = y -> {
+            List<Integer> rowValues = rowValues(BOARD, y).filter(i -> i!=0).boxed().collect(Collectors.toList());
+            return rowValues.size()==rowValues.stream().distinct().count();
+        };
+        Predicate<Integer> legitColumn = x -> {
+            List<Integer> columnValues = columnValues(BOARD, x).filter(i -> i!=0).boxed().collect(Collectors.toList());
+            return columnValues.size()==columnValues.stream().distinct().count();
+        };
+        BiPredicate<Integer, Integer> legitBlock = (x,y) -> {
+            List<Integer> rowValues = blockValuesAt(BOARD, x, y).filter(i -> i!=0).boxed().collect(Collectors.toList());
+            return rowValues.size()==rowValues.stream().distinct().count();
+        };
+        return IntStream.range(0, BOARD.length).allMatch(y ->
+                IntStream.range(0, BOARD.length)
+                        .allMatch(x -> legitBlock.test(x,y) && legitRow.test(y) && legitColumn.test(x)));
     }
-
 }

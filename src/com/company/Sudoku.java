@@ -74,5 +74,28 @@ public class Sudoku {
             {7,	X,	X,	X,	12,	X,	X,	8,	X,	11,	X,	10,	X,	X,	X,	3}
     };
 
+    static void printBoard(int [][] BOARD){
+        int blockHeight = (int)(Math.round(Math.sqrt(BOARD.length)));
+
+        for (int i = 0; i < BOARD.length; i++) {
+            if(i%blockHeight==0){
+                System.out.print("  ");
+                for(int j = 0; j<blockHeight; j++)
+                    for(int k = 0; k<blockHeight; k++)
+                        System.out.print("----");
+                System.out.println();
+            }
+            for (int j = 0; j < BOARD[i].length; j++) {
+                if(j%blockHeight==0)
+                    System.out.print(" | ");
+                else
+                    System.out.print("   ");
+                System.out.print(BOARD[i][j]);
+            }
+            System.out.println(" |");
+        }
+        System.out.println("  -----------------------------------");
+    }
+
     private Sudoku(){}
 }
