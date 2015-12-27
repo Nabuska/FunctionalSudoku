@@ -17,48 +17,39 @@ public class SudokuGenerator {
     private static final int DEFAULT_HINT_NUMBERS = 21;
     private static final int DEFAULT_BLOCK_SIDE_LENGTH = 3;
 
-    /**Generates a random sudoku board with the given BLOCK_SIDE_LENGTH
-     * In a usual Sudoku game BLOCK_SIDE_LENGTH is 3 and the grid values are 1-9
-     * Forexample if a BLOCK_SIDE_LENGTH is 4 the values are 1-16, if 2 the values are 1-4 etc.*/
-    public static List<int [][]> generate(final int BLOCK_SIDE_LENGTH){
-        int BOARD_SIDE_LENGTH = BLOCK_SIDE_LENGTH*BLOCK_SIDE_LENGTH;
+    /**Generates a random sudoku board with the given BLOCK_WIDTH
+     * In a usual Sudoku game BLOCK_WIDTH is 3 and the grid values are 1-9
+     * Forexample if a BLOCK_WIDTH is 4 the values are 1-16, if 2 the values are 1-4 etc.*/
+    /*public static List<int [][]> generate(final int BLOCK_WIDTH){
+        int BOARD_SIDE_LENGTH = BLOCK_WIDTH*BLOCK_WIDTH;
         int [][] board = new int [BOARD_SIDE_LENGTH][BOARD_SIDE_LENGTH];
         for(int[] row : board)
             Arrays.fill(row, 0);
-        /*Integer [][] board = IntStream.range(0, SIDE_LENGTH*SIDE_LENGTH)
-                .boxed().map(i -> IntStream.range(0, SIDE_LENGTH*SIDE_LENGTH)
-                        .boxed().map(j -> 0)
-                        .toArray(Integer[]::new))
-                .toArray(Integer[][]::new);*/
-        SudokuSolver.init(board);
-        int [][] solution = generateHelper(board, SudokuSolver.getAllCoords(board).stream()
-                .collect(Collectors.toList()), board.length*board.length/3*2).invoke();
+        Sudoku sudoku = new Sudoku(Sudoku.EMPTY_GRID);
+        List<int[]> unUsedEmptys = Sudoku.allCoords(BLOCK_WIDTH);
+        placeDefaultHintNumbers(sudoku,unUsedEmptys, BLOCK_WIDTH*BLOCK_WIDTH*BLOCK_WIDTH/2*3);
+        int [][] solution = generateHelper(sudoku, Sudoku.allCoords(BLOCK_WIDTH)).invoke();
         return Arrays.asList(board,solution);
     }
 
-    //TODO tutustu tailCalliin
-    private static TailCall<int[][]> generateHelper(int[][] board, List<int[]> unUsedCoords, int missingMinimumHintNumbers){
+    private static void placeDefaultHintNumbers(Sudoku sudoku, List<int[]> unUsedEmptys, int missingHints){
+        int[] validValues;
+        int[] coord;
+        while(missingHints>0){
+            do {
+                int boardIndex = (int) (unUsedEmptys.size() * random.nextDouble());
+                coord = unUsedEmptys.remove(boardIndex);
+                validValues = sudoku.validValues(coord[1], coord[0]).toArray();
+            } while (validValues.length == 0);
+            sudoku.setValue(coord[1],coord[0], validValues[(int) (validValues.length * random.nextDouble()));
+        }
+    }
+
+    private static TailCall<int[][]> generateHelper(Sudoku sudoku, List<int[]> unUsedCoords){
         try {
-            if (missingMinimumHintNumbers != 0) {
-                System.out.println("if");
-                int[] validValues;
-                int[] coord;
-                do {
-                    int boardIndex = (int) (unUsedCoords.size() * random.nextDouble());
-                    coord = unUsedCoords.remove(boardIndex);
-                    validValues = SudokuSolver.validValueFor(board, coord[1], coord[0]).toArray();
-                } while (validValues.length == 0);
-                board[coord[0]][coord[1]] = validValues[(int) (validValues.length * random.nextDouble())];
-                return call(() -> generateHelper(board, unUsedCoords, missingMinimumHintNumbers - 1));
-            } else {
-                System.out.println("else");
-                List<int[][]> solutions = SudokuSolver.findFirstSolutions(board, 2);
-                int value = Arrays.stream(board).mapToInt(row -> (int) Arrays.stream(row).filter(v -> v > 0).count()).sum();
-                System.out.println("values " + value);
+                List<int[][]> solutions = sudoku.findFirstSolutions(2);
                 if (solutions.isEmpty()) {
-                    System.out.println("empty");
-                    Sudoku.printBoard(board);
-                    List<int[]> valuedCoords = SudokuSolver.getAllCoords(board).stream().filter(c -> board[c[1]][c[0]] != 0).collect(Collectors.toList());
+                    List<int[]> valuedCoords = Sudoku.allCoords()SudokuSolver.getAllCoords(board).stream().filter(c -> board[c[1]][c[0]] != 0).collect(Collectors.toList());
                     int[] randomCoord = valuedCoords.get((int) (valuedCoords.size() * random.nextDouble()));
                     board[randomCoord[1]][randomCoord[0]] = 0;
                     unUsedCoords.add(randomCoord);
@@ -73,15 +64,15 @@ public class SudokuGenerator {
                     Sudoku.printBoard(board);
                     return TailCalls.done(solutions.get(0));
                 }
-            }
+
         }catch (Exception e){
             Sudoku.printBoard(board);
             System.out.println("UNUSED_COORDS ");
             Stream.of(unUsedCoords).forEach(System.out::println);
-            System.out.println("unset min hint number = " +missingMinimumHintNumbers);
+            System.out.println("unset min hint number = " +hintNumbers);
             e.printStackTrace();
             throw new Error("sudokuGenerator error");
         }
-    }
+    }*/
 
 }
