@@ -1,16 +1,8 @@
-package com.company;
+package joona.enbuska.Logic;
 
-import java.util.Arrays;
 import java.util.List;
-import java.util.Set;
-import java.util.function.BiFunction;
-import java.util.function.BiPredicate;
-import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-import java.util.stream.Stream;
-
-import static java.util.stream.Collectors.toList;
 
 /**
  * Created by WinNabuska on 22.12.2015.
@@ -18,7 +10,7 @@ import static java.util.stream.Collectors.toList;
 public class Sudoku {
 
     private static int X = 0;
-    static final int [][] UNSOLVED_EXAMPLE_GRID = {
+    public static final int [][] UNSOLVED_EXAMPLE_GRID = {
             {5, 3, X, X, 7, X, X, X, X},
             {6, X, X, 1, 9, 5, X, X, X},
             {X, 9, 8, X, X, X, X, 6, X},
@@ -29,7 +21,7 @@ public class Sudoku {
             {X, X, X, 4, 1, 9, X, X, 5},
             {X, X, X, X, 8, X, X, 7, 9}
     };
-    static final int [][] MULTI_SOLUTION_EXAMPLE_GRID = {
+    public static final int [][] MULTI_SOLUTION_EXAMPLE_GRID = {
             {X, X, X, X, X, X, X, X, X},
             {X, X, X, 1, 9, 5, X, X, X},
             {X, X, 8, X, X, X, X, 6, X},
@@ -40,7 +32,7 @@ public class Sudoku {
             {X, X, X, X, X, 9, X, X, X},
             {X, X, X, X, 8, X, X, 7, X}
     };
-    static final int [][] SOLVED_EXAMPLE_GRID = {
+    public static final int [][] SOLVED_EXAMPLE_GRID = {
             {5, 3, 4, 6, 7, 8, 9, 1, 2},
             {6, 7, 2, 1, 9, 5, 3, 4, 8},
             {1, 9, 8, 3, 4, 2, 5, 6, 7},
@@ -51,7 +43,7 @@ public class Sudoku {
             {2, 8, 7, 4, 1, 9, 6, 3, 5},
             {3, 4, 5, 2, 8, 6, 1, 7, 9}
     };
-    static final int [][] WORLDS_HARDEST_GRID = {
+    public static final int [][] WORLDS_HARDEST_GRID = {
             {8, X, X, X, X, X, X, X, X},
             {X, X, 3, 6, X, X, X, X, X},
             {X, 7, X, X, 9, X, 2, X, X},
@@ -62,7 +54,7 @@ public class Sudoku {
             {X, X, 8, 5, X, X  , X, 1, X},
             {X, 9, X, X, X, X, 4, X, X}
     };
-    static final int [][] BIG_GRID = {
+    public static final int [][] BIG_GRID = {
             {2,	X,	X,	X,	9,	3,	7,	X,	X,	X,	X,	X,	11,	10,	X,	13,},
             {X,	X,	1,	X,	X,	15,	13,	5,	14,	X,	X,	9,	X,	X,	X,	X},
             {X,	7,	X,	X,	X,	1,	X,	X,	X,	10,	4,	X,	5,	14,	3,	2},
@@ -82,24 +74,25 @@ public class Sudoku {
     };
 
     public static int [][] EMPTY_GRID = {
-            {0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0},
-            {0,0,0,0,0,0,0,0,0,0}
+            {0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,0,0,0}
     };
 
     private Sudoku(){}
 
-    public static List<int[]> allCoords(int BLOCK_WIDTH){
-
-        return  IntStream.range(0,BLOCK_WIDTH*BLOCK_WIDTH)
+    public static List<int[]> allCoords(int [][] grid){
+        int blockWidth = (int) Math.round(Math.sqrt(1.0*grid.length));
+        int gridWidth = blockWidth*blockWidth;
+        return  IntStream.range(0, gridWidth)
                 .boxed()
-                .flatMap(i -> IntStream.range(0, BLOCK_WIDTH*BLOCK_WIDTH)
+                .flatMap(i -> IntStream.range(0, gridWidth)
                         .boxed()
                         .map(j -> new int[]{i,j})).collect(Collectors.toList());
     }

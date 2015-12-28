@@ -1,4 +1,4 @@
-package com.company;
+package joona.enbuska;
 
 /***
  * Excerpted from "Functional Programming in Java",
