@@ -1,9 +1,7 @@
 package joona.enbuska;
 
 import joona.enbuska.Logic.Point;
-import joona.enbuska.Logic.Sudoku;
 import joona.enbuska.Logic.SudokuGenerator;
-import joona.enbuska.Logic.SudokuSolver;
 
 import javax.swing.*;
 import java.util.Map;
@@ -34,16 +32,15 @@ public class SudokuController {
     }
 
     public static void main(String[] args) {
-        //new SudokuController();
-        for (int i = 0; i < 10000; i++) {
+        new SudokuController();
+        /*for (int i = 0; i < 10000; i++) {
             Map<Integer, int[][]> sudoku = SudokuGenerator.generate(3, true);
             if(SudokuSolver.getValuedPoints(sudoku.get(SudokuGenerator.SOLVED)).size()<24){
                 System.out.println("Values " + SudokuSolver.getValuedPoints(sudoku.get(SudokuGenerator.SOLVED)).size());
                 Sudoku.printGrid(sudoku.get(SudokuGenerator.UNSOLVED));
                 Sudoku.printGrid(sudoku.get(SudokuGenerator.SOLVED));
             }
-
-        }
+        }*/
     }
 
     public void onCheckForErrorsClick() {

@@ -116,8 +116,6 @@ public class SudokuView extends JFrame{
                 JTextField f = (JTextField)e.getSource();
                 char c = e.getKeyChar();
                 f.setText(f.getText().replaceAll("[^0-9]+", ""));
-                System.out.println("text is now " + f.getText());
-
 
                 try {
                     if(f.getText().length()>1 && f.getText().charAt(0)=='0'){
