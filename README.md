@@ -1,5 +1,4 @@
 # FunctionalSudoku
 
-See ... 
-Logic -> SudokuSolver.java -> findAllSolutions()
-... for the functional part
+Creates and solves sudokus 
+Functional part in -> Logic -> SudokuSolver.java -> .findAllSolutions()
