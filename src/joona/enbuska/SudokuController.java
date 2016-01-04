@@ -43,7 +43,7 @@ public class SudokuController {
         }*/
     }
 
-    public void onCheckForErrorsClick() {
+    public void onInspectButtonClick() {
         int helpLeft = view.getHelpLeft();
         if(helpLeft>0) {
             Set<Point> wrongValuePoints = IntStream.range(0, solvedGrid.length)

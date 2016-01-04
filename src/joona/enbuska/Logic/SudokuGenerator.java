@@ -18,12 +18,14 @@ public class SudokuGenerator {
     public static Map<Integer, int [][]> generate(int blockWidth, boolean extraHard){
         SudokuSolver solver = new SudokuSolver(Sudoku.EMPTY_GRID);
 
+        System.out.println("0/3");
         placeRandomNumbers(solver, (int)Math.round(Math.pow(blockWidth,3)/2*3));
-
+        System.out.println("1/3");
         makeUnambiguous(solver);
+        System.out.println("2/3");
 
         int [][] solution;
-
+        System.out.println("3/3");
         if(extraHard)
             solution = removeRedundantValues(solver);
         else
@@ -101,7 +103,7 @@ public class SudokuGenerator {
 
         for(Point p : SudokuSolver.getValuedPoints(solver.grid)){
 
-            //System.out.println(i++ +" / " + s);
+            System.out.println(i++ +" / " + s);
 
             int originalValue = solver.grid[p.y][p.x];
             solver.changeGridValue(p.x, p.y, 0);

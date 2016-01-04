@@ -17,7 +17,7 @@ public class SudokuView extends JFrame{
     private final int BLOCK_WIDTH;
     private KeyListener keyListener;
     private SudokuController controller;
-    private JButton checkForErrorsButton;
+    private JButton inspectButton;
     private JPanel mainPanel;
     private int helpLeft = 3;
 
@@ -57,14 +57,14 @@ public class SudokuView extends JFrame{
             }
         }
         mainPanel.add(gridPanel);
-        checkForErrorsButton = new JButton("Check For Errors");
-        checkForErrorsButton.addMouseListener(new MouseAdapter(){
+        inspectButton = new JButton("Inspect");
+        inspectButton.addMouseListener(new MouseAdapter(){
             @Override
             public void mouseClicked(MouseEvent e) {
-                controller.onCheckForErrorsClick();
+                controller.onInspectButtonClick();
             }
         });
-        mainPanel.add(checkForErrorsButton);
+        mainPanel.add(inspectButton);
         SwingUtilities.invokeLater(()-> {
             add(mainPanel);
             pack();
